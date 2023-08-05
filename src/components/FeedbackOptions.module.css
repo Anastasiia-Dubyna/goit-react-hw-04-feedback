@@ -1,0 +1,18 @@
+.feedback_list {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+}
+
+.button {
+  width: 120px;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: rgb(226, 183, 129);
+}
+
+.button::first-letter {
+  text-transform: uppercase;
+}
