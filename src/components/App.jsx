@@ -11,16 +11,16 @@ export const App = () => {
 
   const options = { good, neutral, bad };
 
-  const onLeaveFeedback = option => {
-    switch (option.target.name) {
+  const onLeaveFeedback = evt => {
+    switch (evt.target.name) {
       case 'good':
-        setGood(prevState => prevState + 1);
+        setGood(prevValue => prevValue + 1);
         break;
       case 'neutral':
-        setNeutral(prevState => prevState + 1);
+        setNeutral(prevValue => prevValue + 1);
         break;
       case 'bad':
-        setBad(prevState => prevState + 1);
+        setBad(prevValue => prevValue + 1);
         break;
       default:
         return;
@@ -32,9 +32,7 @@ export const App = () => {
   };
 
   const countPositivePercentage = () => {
-    const total = countTotalFeedback();
-    const { good } = setGood;
-    return Math.round((good * 100) / total);
+    return total !== 0 ? Math.round((good / total) * 100) : 0;
   };
 
   const total = countTotalFeedback();
